@@ -30,21 +30,18 @@ public class ControlPanel extends FlowPane {
         this.setPadding(new Insets(5, 0, 5, 0));
         this.setVgap(4);
         this.setHgap(4);
-        this.setPrefWrapLength(170); // preferred width allows for two columns
+        this.setPrefWrapLength(170); 
         this.setStyle("-fx-background-color: DAE6F3;");
 
         File file = new File("src\\View\\img\\img1.png");
         Image image = new Image(file.toURI().toString());
         ImageView difImageView = new ImageView();
         difImageView.setImage(image);
-        //this.getChildren().add(difImageView);
         vboxControlPanel.getChildren().add(difImageView);
         difImageView.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
             @Override
             public void handle(MouseEvent event) {
-                System.out.println("тык1");
-                //statusControl.set("");
                 setStatusControl("ChangeDef");
             }
         });
@@ -53,14 +50,11 @@ public class ControlPanel extends FlowPane {
         image = new Image(file.toURI().toString());
         ImageView plusImageView = new ImageView();
         plusImageView.setImage(image);
-        //this.getChildren().add(plusImageView);
         vboxControlPanel.getChildren().add(plusImageView);
         plusImageView.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
             @Override
             public void handle(MouseEvent event) {
-                System.out.println("тык2");
-                //getStatusControl();
                 setStatusControl("ChangePlus");
                 
             }
@@ -70,34 +64,14 @@ public class ControlPanel extends FlowPane {
         image = new Image(file.toURI().toString());
         ImageView panImageView = new ImageView();
         panImageView.setImage(image);
-        //this.getChildren().add(panImageView);
         vboxControlPanel.getChildren().add(panImageView);
         panImageView.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
             @Override
             public void handle(MouseEvent event) {
-                System.out.println("тык3");
-                //getStatusControl();
                 setStatusControl("ChangePan");
             }
         });
-
-//        for (int i = 0; i < 3; i++){
-//            File file = new File("src\\View\\img\\img" + (i + 1) + ".png");
-//            Image image = new Image(file.toURI().toString());
-//            ImageView imageView = new ImageView();
-//            imageView.setImage(image);
-//            
-//            imageView.setOnMouseClicked(new EventHandler<MouseEvent>() {
-//
-//                @Override
-//                public void handle(MouseEvent event) {
-//                    System.out.println("тык");
-//                }
-//            });
-//            masImageView[i] = imageView;
-//            vboxControlPanel.getChildren().add(imageView);
-//        }
     }
     public StringProperty getStatusControl()
     {
