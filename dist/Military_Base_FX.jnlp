@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="Military_Base_FX.jnlp">
+  <information>
+    <title>Military_Base_FX</title>
+    <vendor>Константин</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <jfx:javafx-runtime version="2.2+" href="http://javadl.sun.com/webapps/download/GetFile/javafx-latest/windows-i586/javafx2.jnlp"/>
+  </resources>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="Military_Base_FX.jar" size="47003" download="eager" />
+    <jar href="lib/postgresql-9.3-1103.jdbc3.jar" size="540333" download="eager" />
+  </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="Military_Base_FX" >
+    <param name="requiredFXVersion" value="2.2+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="military_base_fx.Military_Base_FX"  name="Military_Base_FX" />
+  <update check="always"/>
+</jnlp>
