@@ -32,7 +32,7 @@ public class ControlPanel extends FlowPane {
         this.setHgap(4);
         this.setPrefWrapLength(170); 
         this.setStyle("-fx-background-color: DAE6F3;");
-
+        System.out.println("TestBranch");
         File file = new File("src\\View\\img\\img1.png");
         Image image = new Image(file.toURI().toString());
         ImageView difImageView = new ImageView();
