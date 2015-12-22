@@ -82,4 +82,8 @@ public class ControlPanel extends FlowPane {
      {
          statusControl.set(_value); //новое
      }
+
+    void resetStatus() {
+        statusControl.set("");
+    }
 }

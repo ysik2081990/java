@@ -28,6 +28,7 @@ public class EmployeesTab extends TabPane {
     Date birthDate = null;
     EmployeesTable employeesTable = null;
     Employee newEmployee = null;
+    ControlPanel controlPanel = null;
 
     public EmployeesTab(List<Employee> _employees) {
 
@@ -43,7 +44,7 @@ public class EmployeesTab extends TabPane {
         tab.setContent(hbox);
         this.getTabs().add(tab);
 
-        ControlPanel controlPanel = new ControlPanel();
+        controlPanel = new ControlPanel();
 
         controlPanel.getStatusControl().addListener(new ChangeListener<String>() {
 
@@ -64,10 +65,14 @@ public class EmployeesTab extends TabPane {
                     });
                     
                     addForm.show();
+                    controlPanel.resetStatus();
                 } else if (newValue.equalsIgnoreCase("ChangePan")) {
+                    Employee employee = employeesTable.getSelectionModel().getSelectedItem();
+                    System.out.println(employee);
+                    controlPanel.resetStatus();
 
                 } else if (newValue.equalsIgnoreCase("ChangeDef")) {
-
+                    controlPanel.resetStatus();
                 }
 
             }

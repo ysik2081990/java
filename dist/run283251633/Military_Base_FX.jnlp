@@ -11,7 +11,7 @@
   </resources>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="Military_Base_FX.jar" size="45955" download="eager" />
+    <jar href="Military_Base_FX.jar" size="45862" download="eager" />
     <jar href="lib/postgresql-9.3-1103.jdbc3.jar" size="540333" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="Military_Base_FX" >
