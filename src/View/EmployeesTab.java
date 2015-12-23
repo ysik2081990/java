@@ -21,6 +21,7 @@ import javafx.scene.layout.HBox;
  */
 public class EmployeesTab extends TabPane {
     AddForm addForm = null;
+    AddForm editForm = null;
     String fistname = "";
     String surname = "";
     String middlename = "";
@@ -70,6 +71,10 @@ public class EmployeesTab extends TabPane {
                     Employee employee = employeesTable.getSelectionModel().getSelectedItem();
                     System.out.println(employee);
                     controlPanel.resetStatus();
+                    editForm = new AddForm(employee);
+                    newEmployee = editForm.getNewEmployee();
+                    employeesTable.addEmployee(newEmployee);
+                    //newEmployee = null;
 
                 } else if (newValue.equalsIgnoreCase("ChangeDef")) {
                     controlPanel.resetStatus();

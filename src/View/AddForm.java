@@ -1,6 +1,8 @@
 package View;
 
 import Entity.Employee;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -31,8 +33,14 @@ public class AddForm extends Stage {
     private BooleanProperty isResult = new SimpleBooleanProperty(false);
 
     private Employee newEmployee = null;
+    private TextField fistNameTextField = null;
+    private TextField surNameTextField = null;
+    private TextField middleTextField = null;
+    private TextField titleTextField = null;
+    private DatePicker birthDatePicker = null;
 
     public AddForm() {
+        Employee employee = new Employee();
 
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
@@ -59,19 +67,19 @@ public class AddForm extends Stage {
         Label birthDate = new Label("Дата рождения:");
         grid.add(birthDate, 0, 5);
 
-        TextField fistNameTextField = new TextField();
+        fistNameTextField = new TextField();
         grid.add(fistNameTextField, 1, 1);
 
-        TextField surNameTextField = new TextField();
+        surNameTextField = new TextField();
         grid.add(surNameTextField, 1, 2);
 
-        TextField middleTextField = new TextField();
+        middleTextField = new TextField();
         grid.add(middleTextField, 1, 3);
 
-        TextField titleTextField = new TextField();
+        titleTextField = new TextField();
         grid.add(titleTextField, 1, 4);
 
-        DatePicker birthDatePicker = new DatePicker();
+        birthDatePicker = new DatePicker();
         grid.add(birthDatePicker, 1, 5);
 
         Button btn = new Button("Добавить");
@@ -99,6 +107,18 @@ public class AddForm extends Stage {
         this.setScene(new Scene(hbox, 450, 300));
         this.show();
     }
+
+    AddForm(Employee employee) {
+        this();//вызов конструктора по умолчанию
+        fistNameTextField.setText(employee.getSurname());
+        surNameTextField.setText(employee.getForename());
+        middleTextField.setText(employee.getMiddlename());
+        titleTextField.setText(employee.getTitle());
+        //birthDatePicker.setValue(birthDatePicker.getConverter().fromString(employee.getBirthDate().toString()));
+        //birthDatePicker.setValue(LocalDate.parse(employee.getBirthDate().toString(), DateTimeFormatter.ofPattern("yyyy/MM/dd")));
+        birthDatePicker.setValue(null);//todo:"Это костыль", необходимо дописать
+        
+    }   
 
     /**
      * @return the firstName
