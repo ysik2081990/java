@@ -11,7 +11,7 @@ import java.sql.Date;
  *
  * @author Константин
  */
-public class Employee {
+public class Employee {//сотрудник
     private String surname;
     private String forename;
     private String middlename;
@@ -26,10 +26,6 @@ public class Employee {
         title = _title;
         birthDate = _birthDate;
     }
-    
-    /*todo: дописать конструктор
-        дописать гетеры
-    **/
     
     @Override
     public String toString(){

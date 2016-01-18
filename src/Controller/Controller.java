@@ -12,8 +12,8 @@ import Model.DAOInit;
 import java.util.ArrayList;
 
 public class Controller {
-    IView view;
-    IDAO dao;
+    IView view; //вид view
+    IDAO dao; // интерф. база
     
     public Controller(IView _view){
         view = _view;

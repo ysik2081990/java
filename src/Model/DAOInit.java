@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class DAOInit implements IDAO{
+public class DAOInit implements IDAO{ //подключение к базе и связь с интерфейсом
     Connection connection= null;
     Statement stmt = null;
     public void connection(){
