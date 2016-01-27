@@ -30,7 +30,7 @@ public class GeneralView extends StackPane implements IView{
             @Override
             public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
                 tabPane.getNewEmployee();
-                
+                //comment
             }
         });
     
