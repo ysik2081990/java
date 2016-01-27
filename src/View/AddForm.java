@@ -1,8 +1,10 @@
 package View;
 
 import Entity.Employee;
+import com.sun.deploy.uitoolkit.ToolkitStore;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import javafx.application.Platform;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -16,12 +18,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import util.DateUtil;
 
 public class AddForm extends Stage {
 
@@ -38,8 +43,10 @@ public class AddForm extends Stage {
     private TextField middleTextField = null;
     private TextField titleTextField = null;
     private DatePicker birthDatePicker = null;
+    private String caption = "";
 
-    public AddForm() {
+    public AddForm(String _caprion) {
+        this.caption = _caprion;
         Employee employee = new Employee();
 
         GridPane grid = new GridPane();
@@ -48,7 +55,7 @@ public class AddForm extends Stage {
         grid.setVgap(10);
         grid.setPadding(new Insets(25, 25, 25, 25));
 
-        Text scenetitle = new Text("Добавление/редактирование сотрудника");
+        Text scenetitle = new Text(this.caption);
         scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
         grid.add(scenetitle, 0, 0, 2, 1);
 
@@ -66,9 +73,21 @@ public class AddForm extends Stage {
 
         Label birthDate = new Label("Дата рождения:");
         grid.add(birthDate, 0, 5);
+        
+        Label msg = new Label();
+        msg.setTextFill(Color.web("#0076a3"));
+        grid.add(msg, 0, 6);
 
         fistNameTextField = new TextField();
         grid.add(fistNameTextField, 1, 1);
+        
+        fistNameTextField.setOnKeyPressed(new EventHandler<KeyEvent>() {
+
+            @Override
+            public void handle(KeyEvent event) {
+                msg.setText("");
+            }
+        });
 
         surNameTextField = new TextField();
         grid.add(surNameTextField, 1, 2);
@@ -86,14 +105,22 @@ public class AddForm extends Stage {
         btn.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
-            public void handle(ActionEvent e) {              
-                newEmployee = new Employee(surNameTextField.getText(), 
-                                            fistNameTextField.getText(), 
-                                            middleTextField.getText(), 
-                                            titleTextField.getText(), 
-                                            null);
-                getIsResult().set(true);
-                
+            public void handle(ActionEvent e) {
+                if (!surNameTextField.getText().equals("")
+                        && !fistNameTextField.getText().equals("")
+                        && !middleTextField.getText().equals("")
+                        && !titleTextField.getText().equals("")
+                        && !birthDatePicker.getValue().toString().equals("")) {
+                    newEmployee = new Employee(surNameTextField.getText(),
+                            fistNameTextField.getText(),
+                            middleTextField.getText(),
+                            titleTextField.getText(),
+                            birthDatePicker.getValue());
+                    getIsResult().set(true);
+                } else {
+                    msg.setText("Не заполнены все поля!!!");
+                }
+
             }
         });
         HBox hbBtn = new HBox(10);
@@ -108,17 +135,18 @@ public class AddForm extends Stage {
         this.show();
     }
 
-    AddForm(Employee employee) {
-        this();//вызов конструктора по умолчанию
+    AddForm(Employee employee, String _caption) {
+        this(_caption);//вызов конструктора по умолчанию
         fistNameTextField.setText(employee.getSurname());
         surNameTextField.setText(employee.getForename());
         middleTextField.setText(employee.getMiddlename());
         titleTextField.setText(employee.getTitle());
+        birthDatePicker.setValue(employee.getBirthDate());
         //birthDatePicker.setValue(birthDatePicker.getConverter().fromString(employee.getBirthDate().toString()));
         //birthDatePicker.setValue(LocalDate.parse(employee.getBirthDate().toString(), DateTimeFormatter.ofPattern("yyyy/MM/dd")));
-        birthDatePicker.setValue(null);//todo:"Это костыль", необходимо дописать
-        
-    }   
+
+        //birthDatePicker.setValue(null);//todo:"Это костыль", необходимо дописать
+    }
 
     /**
      * @return the firstName

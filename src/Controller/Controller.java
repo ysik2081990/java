@@ -19,6 +19,7 @@ public class Controller {
         view = _view;
         dao = new DAOInit();
         dao.connection();
-        view.setEmployee(dao.getEmployees());       
+        view.setEmployee(dao.getEmployees()); 
+        
     }
 }

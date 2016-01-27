@@ -5,7 +5,7 @@
  */
 package Entity;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 /**
  *
@@ -16,10 +16,10 @@ public class Employee {//сотрудник
     private String forename;
     private String middlename;
     private String title;
-    private Date birthDate;
+    private LocalDate birthDate;
     //отчество
     public Employee(){} //constructor по умолчанию
-    public Employee(String _surname, String _forename, String _middlename, String _title, Date _birthDate){
+    public Employee(String _surname, String _forename, String _middlename, String _title, LocalDate _birthDate){
         surname = _surname;
         forename = _forename;
         middlename = _middlename;
@@ -91,14 +91,14 @@ public class Employee {//сотрудник
     /**
      * @return the birthDate
      */
-    public Date getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
     /**
      * @param birthDate the birthDate to set
      */
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 }
