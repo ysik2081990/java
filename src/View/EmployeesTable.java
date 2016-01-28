@@ -20,7 +20,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 public class EmployeesTable extends TableView<Employee>{
     ObservableList<Employee> employees = null;
     public EmployeesTable(List<Employee> _employees){
-        employees = FXCollections.observableArrayList (_employees);
+       if (_employees != null){
+                employees = FXCollections.observableArrayList (_employees);
+       }
         this.setEditable(true);
         TableColumn firstNameCol = new TableColumn("Фамилия");
         firstNameCol.setCellValueFactory(

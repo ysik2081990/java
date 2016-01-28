@@ -1,10 +1,6 @@
 package View;
 
 import Entity.Employee;
-import com.sun.deploy.uitoolkit.ToolkitStore;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import javafx.application.Platform;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
