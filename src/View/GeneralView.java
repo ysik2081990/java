@@ -13,8 +13,8 @@ import javafx.beans.value.ObservableValue;
 import javafx.scene.layout.StackPane;
 
 /**
- *
- * @author Константин
+ * Главный класс view. Содержит в себе EmployeesTab
+ * @author konstantin
  */
 public class GeneralView extends StackPane implements IView{
     Employee newEmployee = null;
@@ -22,6 +22,10 @@ public class GeneralView extends StackPane implements IView{
     
     EmployeesTab tabPane = new EmployeesTab(employees);
     
+    /**
+     * Конструктор с параметром.
+     * @param _employees список сотрудников
+     */
     public GeneralView(List<Employee> _employees) {
         List nodes = this.getChildren();
         nodes.add(tabPane);
@@ -35,16 +39,27 @@ public class GeneralView extends StackPane implements IView{
         });
     
     }
+    
+    /**
+     * конструктоор по-умолчанию
+     */
     public GeneralView(){
         
     }
     
+    /**
+     * метод, посылающий EmployeesTab список сотрудников для отображения
+     */
     public void showDate(){
         List nodes = this.getChildren();
         EmployeesTab tabPane = new EmployeesTab(employees);
         nodes.add(tabPane);
     }
-
+    
+    /**
+     * Метод, принимающий список сотрудников с контроллера
+     * @param _employees 
+     */
     @Override
     public void setEmployee(List<Employee> _employees) {
         employees = _employees;
