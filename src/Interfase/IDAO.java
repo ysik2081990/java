@@ -8,6 +8,9 @@ package Interfase;
 import Entity.Employee;
 import java.util.List;
 
+/**
+ * интерфейс работы с БД
+ */
 public interface IDAO {
     void connection();
     void getDate();

@@ -9,10 +9,7 @@ import Entity.Employee;
 import Interfase.IView;
 import java.util.List;
 
-/**
- *
- * @author Константин
- */
+//TODO: надо удалить
 public class View implements IView{
 
     @Override

@@ -20,8 +20,7 @@ import javafx.scene.control.TabPane;
 import javafx.scene.layout.HBox;
 
 /**
- *
- * @author Константин
+ * Таб панель
  */
 public class EmployeesTab extends TabPane {
 

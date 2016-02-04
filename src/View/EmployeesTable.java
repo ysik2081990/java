@@ -14,8 +14,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
- *
- * @author Константин
+ * таблица с сотрудниками
  */
 public class EmployeesTable extends TableView<Employee>{
     ObservableList<Employee> employees = null;

@@ -11,14 +11,45 @@ import java.time.LocalDate;
  *
  * @author Константин
  */
-public class Employee {//сотрудник
+
+/**
+ * Сущность Сотрудник
+ */
+public class Employee {
+    /**
+     * фамилия
+     */
     private String surname;
+    /**
+     * имя
+     */
     private String forename;
+    /**
+     * отчество
+     */
     private String middlename;
+    /**
+     * звание
+     */
     private String title;
+    /**
+     * дата рождения
+     */
     private LocalDate birthDate;
-    //отчество
-    public Employee(){} //constructor по умолчанию
+
+    /**
+     * конструктор по-умолчанию
+     */
+    public Employee(){}
+
+    /**
+     * конструктор с параметрами
+     * @param _surname фамилия
+     * @param _forename имя
+     * @param _middlename отчество
+     * @param _title звание
+     * @param _birthDate дата рождения
+     */
     public Employee(String _surname, String _forename, String _middlename, String _title, LocalDate _birthDate){
         surname = _surname;
         forename = _forename;
@@ -26,7 +57,11 @@ public class Employee {//сотрудник
         title = _title;
         birthDate = _birthDate;
     }
-    
+
+    /**
+     * строковое значение объяекта
+     * @return
+     */
     @Override
     public String toString(){
         return this.getSurname() + "\n" + this.getForename() + "\n" + this.getMiddlename() + "\n" + this.getTitle() + "\n" + this.getBirthDate(); 

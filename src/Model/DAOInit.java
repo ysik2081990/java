@@ -19,12 +19,19 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class DAOInit implements IDAO { //подключение к базе и связь с интерфейсом
+/**
+ * класс отвечает за взаимодействие с базой
+ */
+public class DAOInit implements IDAO {
 
     Connection connection = null;
     Statement stmt = null;
 
+    /**
+     * подключение к базе
+     */
     public void connection() {
+        //TODO: перенести свойства конектора в отдельный файл ~ db.property
         try {
             Class.forName("org.postgresql.Driver");
             try {
@@ -38,7 +45,11 @@ public class DAOInit implements IDAO { //подключение к базе и �
         }
     }
 
+    /**
+     * получение данных
+     */
     public void getDate() {
+        //TODO: мне кажется ненужный метод
         try {
             stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM nameofsubject;");
@@ -59,6 +70,10 @@ public class DAOInit implements IDAO { //подключение к базе и �
         }
     }
 
+    /**
+     * получение списка сотрудников
+     * @return список сотрудников
+     */
     @Override
     public List<Employee> getEmployees() {
         List<Employee> employees = new ArrayList<>();
@@ -86,6 +101,10 @@ public class DAOInit implements IDAO { //подключение к базе и �
         return employees;
     }
 
+    /**
+     * занесение данных о новых сотрудниках
+     * @param _list список сотрудников
+     */
     public void insertEmployees(List<Employee> _list) {
         for (Employee employee : _list) {
             try {

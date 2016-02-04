@@ -21,6 +21,9 @@ import javafx.scene.layout.VBox;
  * @author Константин
  */
 public class ControlPanel extends FlowPane {
+    /**
+     * хранится строковое представление кнопки(добавление, удаление или редактирование)
+     */
     private StringProperty statusControl = new SimpleStringProperty();
     
     public ControlPanel() {
@@ -38,6 +41,7 @@ public class ControlPanel extends FlowPane {
         ImageView difImageView = new ImageView();
         difImageView.setImage(image);
         vboxControlPanel.getChildren().add(difImageView);
+        //кликнули на удаление
         difImageView.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
             @Override
@@ -51,6 +55,7 @@ public class ControlPanel extends FlowPane {
         ImageView plusImageView = new ImageView();
         plusImageView.setImage(image);
         vboxControlPanel.getChildren().add(plusImageView);
+        //кликнули на добавление
         plusImageView.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
             @Override
@@ -65,6 +70,7 @@ public class ControlPanel extends FlowPane {
         ImageView panImageView = new ImageView();
         panImageView.setImage(image);
         vboxControlPanel.getChildren().add(panImageView);
+        //кликнули на редактирование
         panImageView.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
             @Override
@@ -73,16 +79,21 @@ public class ControlPanel extends FlowPane {
             }
         });
     }
-    public StringProperty getStatusControl()
-    {
+    public StringProperty getStatusControl() {
         return statusControl;
     }
-    
-     public void setStatusControl(String _value)
-     {
-         statusControl.set(_value); //новое
+
+    /**
+     * заносим новое значение в "выбранную кнопку"
+     * @param _value
+     */
+    public void setStatusControl(String _value) {
+         statusControl.set(_value);
      }
 
+    /**
+     * скидывание "выбранной кнопки"
+     */
     void resetStatus() {
         statusControl.set("");
     }

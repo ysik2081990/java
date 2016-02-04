@@ -14,7 +14,11 @@ import java.util.ArrayList;
 public class Controller {
     IView view; //вид view
     IDAO dao; // интерф. база
-    
+
+    /**
+     * Конструктор контроллера
+     * @param _view интерфейс вьюхи
+     */
     public Controller(IView _view){
         view = _view;
         dao = new DAOInit();

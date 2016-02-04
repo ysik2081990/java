@@ -9,8 +9,7 @@ import Entity.Employee;
 import java.util.List;
 
 /**
- *
- * @author Константин
+ * интерфейс интерфейса
  */
 public interface IView {
     void setEmployee(List<Employee> employees);

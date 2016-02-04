@@ -5,8 +5,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
 /**
- *
- * @author Константин
+ * утилиты для работы с датой
  */
 public class DateUtil {
 

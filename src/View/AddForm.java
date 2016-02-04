@@ -24,15 +24,39 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import util.DateUtil;
 
+/**
+ * форма для добавления новых сотрудников
+ */
 public class AddForm extends Stage {
 
+    /**
+     * фамилия
+     */
     private StringProperty firstName = new SimpleStringProperty();
+    /**
+     * имя
+     */
     private StringProperty surName = new SimpleStringProperty();
+    /**
+     * отчество
+     */
     private StringProperty middleName = new SimpleStringProperty();
+    /**
+     * звание
+     */
     private StringProperty titleName = new SimpleStringProperty();
+    /**
+     * дата рождения
+     */
     private StringProperty birthDatePerson = new SimpleStringProperty();
+    /**
+     * флаг, true - когда добавляется новый сотрудник
+     */
     private BooleanProperty isResult = new SimpleBooleanProperty(false);
 
+    /**
+     * новый сотрудник
+     */
     private Employee newEmployee = null;
     private TextField fistNameTextField = null;
     private TextField surNameTextField = null;
@@ -41,6 +65,10 @@ public class AddForm extends Stage {
     private DatePicker birthDatePicker = null;
     private String caption = "";
 
+    /**
+     * конструктор
+     * @param _caprion заголовок окна
+     */
     public AddForm(String _caprion) {
         this.caption = _caprion;
         Employee employee = new Employee();
@@ -131,6 +159,11 @@ public class AddForm extends Stage {
         this.show();
     }
 
+    /**
+     * конструктор
+     * @param employee сотрудник, который будет отображаться в фофрме
+     * @param _caption заголовок формы
+     */
     AddForm(Employee employee, String _caption) {
         this(_caption);//вызов конструктора по умолчанию
         fistNameTextField.setText(employee.getSurname());
